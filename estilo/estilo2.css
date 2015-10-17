@@ -1,0 +1,185 @@
+/* Página de Estilos do Fórum Pedalando*/
+
+body {
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#pagina {
+    text-align: justify;
+    width: 950px;
+    height: 100%;
+    background: white;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#banner {
+    width: 100%;
+    height: 105px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#logotipo {
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    float: left;
+}
+
+#busca {
+    width: 320px;
+    height: 60px;
+    padding-top: 35px;
+    padding-left: 40px;
+    text-align: center;
+    float: left;
+    vertical-align: middle;
+}
+
+#area_usuario {
+    width: 240px;
+    height: 85px;
+    border-top-left-radius: 8px;	
+    border-top-right-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-align: center;
+    float: left;
+    background-color: green;
+    color: white;
+}
+
+#area_usuario a {
+    color: white;
+    text-decoration: none;
+}
+
+#area_usuario a:hover {
+    text-decoration: underline;
+}
+
+#area_usuario table {
+   border: 0;
+}
+
+#area table tr td {
+    color: white;
+    text-align: justify;
+}
+
+#barra_menus {
+    width: 100%;
+    height: 60px;
+    background: #CC0000;
+    border-top-right-radius: 10px; 
+    border-top-left-radius: 10px;
+    padding-top: 15px;
+}
+
+#erro {
+    color: red;
+    font-weight: bold;
+}
+
+#conteudo {
+    width: 100%-10px;
+    height: 100%;
+    background: lightyellow;
+    box-shadow: 10px 10px 10px 10px#888888; 
+    border: black 1px;
+    padding: 10px;
+}
+
+#conteudo table {
+    width: 450px;
+    height: 170px;
+    float: left;
+    border-radius: 5px;
+    background: lightsalmon;
+    padding: 5px;
+    margin: 5px;
+}
+
+#conteudo td {
+    vertical-align: top;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 10pt;
+}
+
+#conteudo th {
+    padding-bottom: 10px;
+    font-size: 10pt;
+}
+
+#conteudo table a {
+    color: darkred;
+}
+
+#perguntas {
+    width: 290px;
+    height: 275px;
+    float: left;
+    border-radius: 5px;
+    background: lightsalmon;
+    padding: 5px;
+    margin: 5px;
+}
+
+#perguntas textarea {
+    border-radius: 3px;
+    padding: 10px;
+    font-family: Times New Roman;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+#pergunta a {
+    font-family: Arial;
+    font-size: 10pt;
+    color: black;
+    font-weight: bold;
+} 
+
+#pergunta small {
+    font-size: 8pt;
+    font-family: Sans-Serif;
+}
+
+#pergunta p {
+    font-size: 9pt;
+}
+
+#rodape {
+    height: 35px;
+    width: 900;
+    font-family: Arial, Sans-Serif;
+    font-size: 13pt;
+    text-align: center;
+    padding-top: 8px;
+    color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 25px;
+    background: darkgreen;
+}
+
+#rodape a {
+    text-decoration: none;
+    color: white;
+}
+
+#rodape a:hover {
+    text-decoration: underline;
+}

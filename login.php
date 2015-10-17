@@ -1,39 +1,41 @@
+<?php session_start(); ?>
 <html>
 	<head>
-		<title> Pedalando :: O seu fórum sobre ciclismo </title>
-		<link rel="stylesheet" href="estilo.css" type="text/css" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <meta name="author" content="netbeans"/> 
+            <title> Pedalando :: O seu fórum sobre ciclismo </title>
+            <link rel="stylesheet" href="estilo/estilo.css" type="text/css" />
+            <link rel="stylesheet" href="estilo/menus.css" type="text/css" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta name="author" content="netbeans"/> 
 	</head>
 	<body>
-		<center>
-		<div id="pagina">
-			<div id="banner">
-				<!-- Implementação do Logotipo -->
-				<div id="logotipo">
-					<a href="index.php"><img src="imagens/logo.png"  /></a>
-				</div>
-				
-				<!-- Implementação do algoritmo de busca -->
-				<div id="busca">
-					<form action="index.php" method="get">
-						<input type="text" size="30" name="busca" />
-						<input type="submit" value="Buscar" />
-					</form>
-				</div>
-				
-				<!-- Implementação da área do usuário graficamente-->
-				<div id="area_usuario">
-                                    <?php
-                                        include("scripts/usuario.php");	
-                                    ?>
-				</div>
-			</div>
-			<div id="barra_menus">
-                    <?php
-                        include("scripts/menu.php");
-                    ?>
-			</div>
+            <center>
+            <div id="pagina">
+                <div id="banner">
+                    <!-- Implementação do Logotipo -->
+                    <div id="logotipo">
+                        <a href="index.php"><img src="imagens/logo.png"  /></a>
+                    </div>
+
+                    <!-- Implementação do algoritmo de busca -->
+                    <div id="busca">
+                        <form action="index.php" method="get">
+                            <input type="text" size="30" name="busca" />
+                            <input type="submit" value="Buscar" />
+                        </form>
+                    </div>
+
+                    <!-- Implementação da área do usuário graficamente-->
+                    <div id="area_usuario">
+                        <?php
+                            include("scripts/usuario.php");	
+                        ?>
+                    </div>
+                </div>
+            <div id="menus">
+                <?php
+                    include("scripts/menu.php");
+                ?>
+            </div>
 			
 			<!-- Conteudo da Página -->
 			<div id="conteudo">
@@ -51,8 +53,9 @@
                                     {
                                         if ($usuarios["login"] == $user){
                                             if ($usuarios["senha"] == $senha){
-                                                setcookie("usuario", $usuarios["apelido"], time()+36000);
-                                                setcookie("id_usuario", $usuarios["id_usuario"], time() + 36000);
+                                                $_SESSION["usuario"] = $user;
+                                                $_SESSION["id_usuario"] = $usuarios["id_usuario"];
+                                                $_SESSION["apelido"] = $usuarios["apelido"];
                                                 echo('<script type="text/javascript">location.replace("index.php")</script>');
                                                 }                                         
                                         } 
@@ -73,7 +76,7 @@
 			<!-- Rodapé da Página -->
 			<div id="rodape">
 				<b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a>, 
-				<a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a> e <a href="mailto:glaudem@hotmail.com">Glaudeilson Mendes</a></b> <br >
+				<a href="mailto:gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a> e <a href="mailto:glaudem@hotmail.com">Glaudeilson Mendes</a></b> <br >
 			</div>
 		</div>
 		</center>

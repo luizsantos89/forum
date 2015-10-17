@@ -59,6 +59,17 @@
                             data_criacao DATE NOT NULL);";
     $criarResposta = mysql_query($criandoRespostas) or die ("Falha na criação da tabela Reposta");
     
+    //Criando tabela Anuncios
+    $criandoAnuncios = "CREATE TABLE anuncio(
+                           id_anuncio INT(6) AUTO_INCREMENT PRIMARY KEY,
+                           id_usuario INT(6) NOT NULL REFERENCES usuario(id_usuario),
+                           titulo VARCHAR(500) NOT NULL,
+                           texto VARCHAR(1000) NOT NULL,
+                           data_criacao DATE NOT NULL,                     (32) 9 8495-5545
+                           telefone VARCHAR(16) NOT NULL,
+                           email VARCHAR(60) NOT NULL);";
+    $criarAnuncio = mysql_query($criandoAnuncios) or die ("Falha na criação da tabela Anúncios");
+    
     //Criado com sucesso
     echo ("Estrutura criada com sucesso");
     echo ("<a href='index.php'>Ir para o Projeto</a>");

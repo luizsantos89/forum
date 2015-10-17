@@ -6,6 +6,6 @@
     mysql_select_db("forum") or die("Não foi possível selecionar o Banco de Dados");
      
     //Retorna toda a tabela usuário
-    $consulta = "SELECT * FROM pergunta";
+    $consulta = "SELECT * FROM anuncio";
     $resultado = mysql_query($consulta) or die ("Erro na consulta aos dados");
 ?>

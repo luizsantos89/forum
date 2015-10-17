@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if (isset($_POST["titulo"])){
         if(empty($_POST["titulo"])){
             echo('<script type="text/javascript">location.replace("../nova_pergunta.php?erro=1")</script>');  
@@ -8,7 +9,7 @@
             echo('<script type="text/javascript">location.replace("../nova_pergunta.php?erro=2")</script>');  
         } else $texto = $_POST["texto"];
         
-        $id_usuario = $_COOKIE["id_usuario"];
+        $id_usuario = $_SESSION["id_usuario"];
         $data = date("Y/m/d");
         $hora = date("h:i:s");
         

@@ -1,13 +1,9 @@
-<?php
-    if (isset($_POST["sair"])) {
-        unset ($_COOKIE["usuario"]);
-        unset ($_COOKIE["id_usuario"]);
-    }
-?>
+<?php session_start(); ?>
 <html>
     <head>
             <title> Pedalando :: O seu fórum sobre ciclismo </title>
-            <link rel="stylesheet" href="estilo.css" type="text/css" />
+            <link rel="stylesheet" href="estilo/estilo.css" type="text/css" />
+            <link rel="stylesheet" href="estilo/menus.css" type="text/css" />
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
@@ -34,7 +30,7 @@
                     ?>
                 </div>
             </div>
-            <div id="barra_menus">
+            <div id="menus">
                 <?php
                     include("scripts/menu.php");
                 ?>

@@ -1,10 +1,6 @@
 <?php
-    if (isset($_COOKIE["usuario"]))
-        echo("Bem vindo, ".$_COOKIE["usuario"].' | 
-                <form action="index.php" method="post">
-                     <input type="hidden" name="sair" />
-                     <input type="submit" value="Sair" />
-                </form>');
+    if (isset($_SESSION["usuario"]))
+        echo("Bem vindo, ".$_SESSION["apelido"].' | <a href="scripts/logout.php">Sair</a>');
     else {
         echo("<center><table>
         <form action='login.php' method='post'>

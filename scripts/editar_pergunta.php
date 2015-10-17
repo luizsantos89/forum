@@ -1,7 +1,9 @@
+<?php session_start(); ?>
 <html>
     <head>
         <title> Pedalando :: O seu fórum sobre ciclismo </title>
-        <link rel="stylesheet" href="../estilo.css" type="text/css" />
+            <link rel="stylesheet" href="../estilo/estilo.css" type="text/css" />
+            <link rel="stylesheet" href="../estilo/menus.css" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             th {
@@ -34,35 +36,13 @@
                 <!-- Implementação da área do usuário graficamente-->
                 <div id="area_usuario">
                     <?php
-                        if (isset($_COOKIE["usuario"]))
-                            echo("Bem vindo, ".$_COOKIE["usuario"].' | 
-                                    <form action="index.php" method="post">
-                                         <input type="hidden" name="sair" />
-                                         <input type="submit" value="Sair" />
-                                    </form>');
-                        else {
-                            echo("
-                            <form action='../login.php' method='post'>
-                                User: <input type='text' name='usuario' size='8' /><br />
-                                Senha: <input type='password' name='senha' size='8' /><br />
-                                <input type='submit' value='Entrar' />
-                            </form>
-                            ");
-                            }	
+                        include("usuario.php");	
                     ?>
                 </div>
             </div>
-            <div id="barra_menus">
+            <div id="menus">
                 <?php
-                    echo('
-                    <ul>
-                        <li><a href="../index.php">Principal</a>
-                        <li><a href="../minhas_perguntas.php">Minhas Perguntas</a>
-                        <li><a href="../nova_pergunta.php">Perguntar</a>
-                        <li><a href="../analise_respostas.php">Analisar Respostas</a>
-                        <li><a href="../perguntas.php">Perguntas de Outros Usuários</a>
-                    </ul>
-                    ');
+                    include("menu_interno.php");
                 ?>
             </div>
 

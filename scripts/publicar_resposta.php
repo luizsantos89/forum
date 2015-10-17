@@ -1,13 +1,9 @@
-<?php
-    if (isset($_POST["sair"])) {
-        unset ($_COOKIE["usuario"]);
-        unset ($_COOKIE["id_usuario"]);
-    }
-?>
+<?php session_start(); ?>
 <html>
     <head>
         <title> Pedalando :: O seu fórum sobre ciclismo </title>
-        <link rel="stylesheet" href="../estilo.css" type="text/css" />
+            <link rel="stylesheet" href="../estilo/estilo.css" type="text/css" />
+            <link rel="stylesheet" href="../estilo/menus.css" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             th {
@@ -40,8 +36,8 @@
                 <!-- Implementação da área do usuário graficamente-->
                 <div id="area_usuario">
                     <?php
-                        if (isset($_COOKIE["usuario"]))
-                            echo("Bem vindo, ".$_COOKIE["usuario"].' | 
+                        if (isset($_SESSION["usuario"]))
+                            echo("Bem vindo, ".$_SESSION["usuario"].' | 
                                     <form action="../index.php" method="post">
                                          <input type="hidden" name="sair" />
                                          <input type="submit" value="Sair" />
@@ -58,7 +54,7 @@
                     ?>
                 </div>
             </div>
-            <div id="barra_menus">
+            <div id="menus">
                 <?php
                     echo('
                     <ul>
@@ -81,8 +77,8 @@
                         $id_pergunta = (int) $_POST["id_pergunta"];
                         $resposta = $_POST["resposta"]; 
                         $data_resposta = date("Y-m-d");
-                        $id_usuario_resposta = (int) $_COOKIE["id_usuario"];
-                        $apelido_resposta = $_COOKIE["usuario"];
+                        $id_usuario_resposta = (int) $_SESSION["id_usuario"];
+                        $apelido_resposta = $_SESSION["usuario"];
                         
                         //Conecta ao servidor MySQL
                         $conect = mysql_connect("localhost","root","") or print 'Sem conexão';

@@ -36,7 +36,7 @@
                 <!-- Implementação da área do usuário graficamente-->
                 <div id="area_usuario">
                     <?php
-                        include("usuario.php");
+                        include("usuario.php");	
                     ?>
                 </div>
             </div>
@@ -50,27 +50,28 @@
             <div id="conteudo">
                 <?php 
                     // Verifica se veio da página principal
-                    if(isset($_GET["id_pergunta"])) {
-                        $id_pergunta = (int) $_GET["id_pergunta"];                               
+                    if(isset($_GET["id_anuncio"])) {
+                        $id_anuncio = (int) $_GET["id_anuncio"];                               
 
                         //Buscar dados da pergunta
-                        include("busca_perguntas_usuario.php");
+                        include("busca_anuncios_usuario.php");
 
 
                         //Exibe a pergunta na tela
-                        while ($pergunta = mysql_fetch_assoc($resultado)){ 
-                            if($pergunta["id_pergunta"] == $id_pergunta){
-                                $texto = $pergunta["texto"];
-                                $titulo = $pergunta["titulo"];
+                        while ($anuncio = mysql_fetch_assoc($resultado)){ 
+                            if($anuncio["id_anuncio"] == $id_anuncio){
+                                $texto = $anuncio["texto"];
+                                $titulo = $anuncio["titulo"];
                                 
-                                echo ("<h1>Dados da Pergunta: </h1>                                        
-                                <form action='deletar_pergunta.php' method='post'>
-                                        Pergunta: <br /><textarea name='titulo' cols='60' rows='1'>$titulo</textarea><br /><br />
-                                        Detalhes: <br /><textarea name='texto' cols='60' rows='10'>$texto</textarea></td><br /><br />
-                                        Confirma a exclusão? 
+                                echo ("<h1>Confirme as edições: </h1> 
+                                    <small>Preencher todos os campos</small><br /><br />
+                                <form action='editar_anuncio.php' method='post'>
+                                        Pergunta: <br /><textarea name='titulo' cols='60' rows='1' placeholder='".$titulo."'></textarea><br /><br />
+                                        Detalhes: <br /><textarea name='texto' cols='60' rows='10' placeholder='".$texto."'></textarea></td><br /><br />
+                                        Confirma a edição? 
                                         <input type='radio' name='confirma' value='sim' />Sim 
                                         <input type='radio' name='confirma' value='nao' />Não <br /><br />
-                                        <input type='hidden' name='id_pergunta' value=".$id_pergunta." />
+                                        <input type='hidden' name='id_anuncio' value=".$id_anuncio." />
                                         <input type='submit' value='Editar' />
                                 </form>");
                             }
@@ -78,26 +79,28 @@
                     }
                     
                     //Verifica se já foi confirmado a edição
-                    if (isset($_POST["id_pergunta"])) {
+                    if (isset($_POST["id_anuncio"])) {
                         if($_POST["confirma"]=="sim") {
                             
                             //Busca as informações das perguntas
-                            include("busca_perguntas_usuario.php");
+                            include("busca_anuncios_usuario.php");
                             
                             //Exibe a pergunta na tela
-                            $id_pergunta = (int) $_POST["id_pergunta"];
+                            $id_anuncio = (int) $_POST["id_anuncio"];
                             $titulo = $_POST["titulo"];
                             $texto = $_POST["texto"];
-                            while ($pergunta = mysql_fetch_assoc($resultado)){ 
-                                if($pergunta["id_pergunta"] == $id_pergunta){
-                                    $altera = "DELETE from pergunta WHERE id_pergunta = ".$id_pergunta."";
+                            while ($anuncio = mysql_fetch_assoc($resultado)){ 
+                                if($anuncio["id_anuncio"] == $id_anuncio){
+                                    $altera = "UPDATE anuncio 
+                                                    SET titulo = '".$titulo."', texto = '".$texto."' 
+                                                    WHERE id_anuncio = ".$id_anuncio."";
                                     $alterar = mysql_query($altera) or die ("Falha na atualização dos dados");
-                                    echo("Deletado com sucesso! <br><br><a href='../minhas_perguntas.php'>Voltar para minhas perguntas</a>");
+                                    echo("Alterado com sucesso! <br><br><a href='../meus_anuncios.php'>Voltar para meus anúncios</a>");
                                 }
                             }
                             } else {
                                 echo("Nada foi alterado");
-                                echo("<br><br><a href='../minhas_perguntas.php'>Voltar para minhas perguntas</a>");
+                                echo("<br><br><a href='../meus_anuncios.php'>Voltar para meus anúncios</a>");
                             }
                         }
                 ?>

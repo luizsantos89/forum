@@ -1,7 +1,9 @@
+<?php session_start(); ?>
 <html>
 	<head>
 		<title> Pedalando :: O seu fórum sobre ciclismo </title>
-		<link rel="stylesheet" href="estilo2.css" type="text/css" />
+            <link rel="stylesheet" href="estilo/estilo.css" type="text/css" />
+            <link rel="stylesheet" href="estilo/menus.css" type="text/css" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	<body>
@@ -28,11 +30,11 @@
                                     ?>
 				</div>
 			</div>
-			<div id="barra_menus">
-                    <?php
-                        include("scripts/menu.php");
-                    ?>
-			</div>
+            <div id="menus">
+                <?php
+                    include("scripts/menu.php");
+                ?>
+            </div>
 			
 			<!-- Conteudo da Página -->
 			<div id="conteudo">
@@ -52,7 +54,7 @@
                                 $cont = 0;
                                 while ($pergunta = mysql_fetch_assoc($resultado)){ 
                                     /*Verifica as perguntas do usuário e as que tem repostas pendentes de análise */
-                                    if (($pergunta["id_usuario"] == $_COOKIE["id_usuario"]) && ($pergunta["resposta_pendente"] == 1)) {
+                                    if (($pergunta["id_usuario"] == $_SESSION["id_usuario"]) && ($pergunta["resposta_pendente"] == 1)) {
                                         $id_pergunta = $pergunta["id_pergunta"];
                                         $titulo_pergunta = $pergunta["titulo"];
                                         $texto_pergunta = $pergunta["texto"];
