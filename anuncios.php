@@ -51,8 +51,21 @@
                     while ($anuncio = mysql_fetch_assoc($query)){ 
                         //Compara o usuário logado atualmente e o usuário das perguntas
                         $id_usuario = (int) $anuncio["id_usuario"];
-                        $id_usuario_logado = (int) $_SESSION["id_usuario"];
-                        if ($id_usuario != $id_usuario_logado) {  
+                        if (isset($_SESSION["id_usuario"])) {
+                            $id_usuario_logado = (int) $_SESSION["id_usuario"];
+                            if ($id_usuario != $id_usuario_logado) {  
+                                $apelido = $anuncio["apelido"];
+                                $id_anuncio = (int) $anuncio["id_anuncio"];
+                                echo ("<div id='perguntas'>
+                                <small>Criado em: ".date('d/m/Y',strtotime($anuncio["data_criacao"]))." às ".date('H:i:s',strtotime($anuncio["hora_criacao"]))."<br>Por ".$apelido."</small><br /><br/>
+                                <b>".$anuncio["titulo"]."</b><br />
+                                <p>".$anuncio["texto"]."</p><br />
+                                <b>Entre em contato com o anunciante: </b><br/>
+                                <p>Telefone: ".$anuncio["telefone"]." <br />
+                                E-mail: ".$anuncio["email"]." </p>
+                                </div>");
+                            }
+                        } else {
                             $apelido = $anuncio["apelido"];
                             $id_anuncio = (int) $anuncio["id_anuncio"];
                             echo ("<div id='perguntas'>
@@ -63,8 +76,8 @@
                             <p>Telefone: ".$anuncio["telefone"]." <br />
                             E-mail: ".$anuncio["email"]." </p>
                             </div>");
-                            }
                         }
+                    }
                 ?>
             </div>
 

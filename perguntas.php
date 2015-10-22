@@ -51,13 +51,30 @@
                     while ($pergunta = mysql_fetch_assoc($query)){ 
                         //Compara o usuário logado atualmente e o usuário das perguntas
                         $id_usuario = (int) $pergunta["id_usuario"];
-                        $id_usuario_logado = (int) $_SESSION["id_usuario"];
-                        if ($id_usuario != $id_usuario_logado) {  
+                        if (isset($_SESSION["id_usuario"])) {
+                            $id_usuario_logado = (int) $_SESSION["id_usuario"];
+                            if ($id_usuario != $id_usuario_logado) {  
+                                $apelido = $pergunta["apelido"];
+                                $id_usuario_pergunta = $pergunta["id_usuario"];
+                                $id_pergunta = (int) $pergunta["id_pergunta"];
+                                echo ("<div id='perguntas'>
+                                    <small>Postado em: ".date('d/m/Y',strtotime($pergunta["data_criacao"]))." às "
+                                        .date('H:i:s',strtotime($pergunta["hora_criacao"]))."<br>Por ".$apelido."</small><br /><br />
+                                    <b>".$pergunta["titulo"]."</b><br />
+                                    <p>".$pergunta["texto"]."</p>
+                                    <form action='scripts/publicar_resposta.php' method='post'>
+                                        <input type='hidden' value=$id_pergunta name='id_pergunta' />
+                                        <input type='hidden' value=$apelido name='apelido' />
+                                        <textarea name='resposta' placeholder='Sabe a resposta? Só preencher aqui ;) ...' cols='42' rows='4'></textarea><br />
+                                        <input type='submit' value='Responder' />
+                                    </form>
+                                </div>");
+                            }
+                        } else {
                             $apelido = $pergunta["apelido"];
                             $id_usuario_pergunta = $pergunta["id_usuario"];
                             $id_pergunta = (int) $pergunta["id_pergunta"];
                             echo ("<div id='perguntas'>
-
                                 <small>Postado em: ".date('d/m/Y',strtotime($pergunta["data_criacao"]))." às "
                                     .date('H:i:s',strtotime($pergunta["hora_criacao"]))."<br>Por ".$apelido."</small><br /><br />
                                 <b>".$pergunta["titulo"]."</b><br />
@@ -69,8 +86,8 @@
                                     <input type='submit' value='Responder' />
                                 </form>
                             </div>");
-                            }
                         }
+                    }
                 ?>
             </div>
 
