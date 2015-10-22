@@ -76,7 +76,9 @@
                         //Variáveis necessárias para gravar a resposta
                         $id_pergunta = (int) $_POST["id_pergunta"];
                         $resposta = $_POST["resposta"]; 
-                        $data_resposta = date("Y-m-d");
+                        date_default_timezone_set('America/Sao_Paulo');
+                        $data = date('Y-m-d');
+                        $hora = date('H:i:s');
                         $id_usuario_resposta = (int) $_SESSION["id_usuario"];
                         $apelido_resposta = $_SESSION["usuario"];
                         
@@ -100,8 +102,8 @@
                         }
                         
                         //Grava os dados na tabela resposta
-                        $grava_resposta = "INSERT INTO resposta(id_usuario,id_pergunta,texto,data_criacao,analisada) 
-                                                        VALUES (".$id_usuario_resposta.",".$id_pergunta.",'".$resposta."', '".$data_resposta."',0)";
+                        $grava_resposta = "INSERT INTO resposta(id_usuario,id_pergunta,texto,data_criacao,analisada, hora_criacao) 
+                                                        VALUES ($id_usuario_resposta,$id_pergunta,'$resposta', '$data',0,$hora)";
                         $insere_resp = mysql_query($grava_resposta) or die ("Erro na gravação da resposta");
                         
                         //Grava a pendencia na tabela pergunta

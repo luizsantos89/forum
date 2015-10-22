@@ -108,7 +108,7 @@ a:hover {
 }
 
 #conteudo table {
-    width: 220px;
+    width: 250px;
     height: 250px;
     float: left;
     border-radius: 5px;
@@ -131,6 +131,12 @@ a:hover {
     font-size: 10pt;
     font-family: Times;
     text-transform: capitalize;
+}
+
+#login {
+    width: 700px;
+    padding: 55px;
+    top: 500px;
 }
 
 #perguntas {

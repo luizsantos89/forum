@@ -10,8 +10,9 @@
         } else $texto = $_POST["texto"];
         
         $id_usuario = $_SESSION["id_usuario"];
-        $data = date("Y/m/d");
-        $hora = date("h:i:s");
+        date_default_timezone_set('America/Sao_Paulo');
+        $data = date('Y-m-d');
+        $hora = date('H:i:s');
         
         if(!empty($_POST["titulo"]) && !empty($_POST["texto"])) {
             //Conecta ao banco e usa a tabela pergunta
@@ -26,8 +27,8 @@
             echo("<b>Hora: </b> $hora <br />");
 
             //insere os dados na tabela pergunta
-            $query = "INSERT INTO pergunta(id_usuario, titulo, texto, data_criacao,resposta_pendente)  
-                      VALUES (".$id_usuario.", '".$titulo."', '".$texto."', '".$data."',0);";
+            $query = "INSERT INTO pergunta(id_usuario, titulo, texto, data_criacao,resposta_pendente,hora_criacao)  
+                      VALUES ($id_usuario, '$titulo', '$texto', '$data',0,'$hora');";
             $insere = mysql_query($query) or die ("Erro na gravação dos dados");
             echo('<script type="text/javascript">location.replace("../minhas_perguntas.php")</script>');    
         }

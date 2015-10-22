@@ -43,31 +43,57 @@
                                 if(isset($_POST["usuario"])) {
                                     //Lendo as entradas do usuário
                                     //Lê as informações do formulário
-                                    $user = $_POST["usuario"];
-                                    $senha = $_POST["senha"];
-    
-                                    include("/scripts/conecta_usuario.php");                                
-                                    
-                                    //Comparando as entradas do usuário com os dados do BD
-                                    while ($usuarios = mysql_fetch_assoc($resultado))
-                                    {
-                                        if ($usuarios["login"] == $user){
-                                            if ($usuarios["senha"] == $senha){
-                                                $_SESSION["usuario"] = $user;
-                                                $_SESSION["id_usuario"] = $usuarios["id_usuario"];
-                                                $_SESSION["apelido"] = $usuarios["apelido"];
-                                                echo('<script type="text/javascript">location.replace("index.php")</script>');
-                                                }                                         
-                                        } 
+                                    if(empty($_POST["usuario"]) && empty($_POST["senha"])){                                        
+                                        echo("
+                                        <div id='login'>
+                                            <div id=erro>Campos não podem ficar em branco</div>                                                        
+                                            <form action='login.php' method='post'>
+                                                Login: <input type='text' name='usuario' /><br/><br/>
+                                                Senha: <input type='password' name='senha' /><br /><br />
+                                                <input type='submit' value='Entrar' />
+                                            </form>
+                                        </div>
+                                        ");  
+                                    } else {
+                                        $user = $_POST["usuario"];
+                                        $senha = $_POST["senha"];
+
+                                        include("/scripts/conecta_usuario.php");                                
+
+                                        //Comparando as entradas do usuário com os dados do BD
+                                        while ($usuarios = mysql_fetch_assoc($resultado))
+                                        {
+                                            if ($usuarios["login"] == $user){
+                                                if ($usuarios["senha"] == $senha){
+                                                    $_SESSION["usuario"] = $user;
+                                                    $_SESSION["id_usuario"] = $usuarios["id_usuario"];
+                                                    $_SESSION["apelido"] = $usuarios["apelido"];
+                                                    echo('<script type="text/javascript">location.replace("index.php")</script>');
+                                                    } else {
+                                                        echo("
+                                                        <div id='login'>
+                                                            <div id=erro>Usuário/Senha incorreto</div>                                                        
+                                                            <form action='login.php' method='post'>
+                                                                Login: <input type='text' name='usuario' /><br/><br/>
+                                                                Senha: <input type='password' name='senha' /><br /><br />
+                                                                <input type='submit' value='Entrar' />
+                                                            </form>
+                                                        </div>
+                                                    ");  
+                                                }                                 
+                                            } 
+                                        }
                                     }
                                 }
                                 else {
                                     echo("
-                                        <form action='login.php' method='post'>
-                                            Usuário: <input type='text' name='usuario' /><br />
-                                            Senha: <input type='password' name='senha' /><br />
-                                            <input type='submit' value='Entrar' />
-                                        </form>
+                                        <div id='login'>
+                                            <form action='login.php' method='post'>
+                                                Login: <input type='text' name='usuario' /><br/><br/>
+                                                Senha: <input type='password' name='senha' /><br /><br />
+                                                <input type='submit' value='Entrar' />
+                                            </form>
+                                        </div>
                                     ");
                                 }
                             ?>

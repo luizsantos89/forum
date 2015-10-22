@@ -56,7 +56,7 @@
                             $apelido = $anuncio["apelido"];
                             $id_anuncio = (int) $anuncio["id_anuncio"];
                             echo ("<div id='perguntas'>
-                            <small>Criado em: ".date('d/m/Y',strtotime($anuncio["data_criacao"]))."<br>Por ".$apelido."</small><br /><br/>
+                            <small>Criado em: ".date('d/m/Y',strtotime($anuncio["data_criacao"]))." às ".date('H:i:s',strtotime($anuncio["hora_criacao"]))."<br>Por ".$apelido."</small><br /><br/>
                             <b>".$anuncio["titulo"]."</b><br />
                             <p>".$anuncio["texto"]."</p><br />
                             <b>Entre em contato com o anunciante: </b><br/>

@@ -13,7 +13,9 @@
         $data = date("Y/m/d");
         $telefone = $_POST["telefone"];
         $email = $_POST["email"];
-        $hora = date("h:i:s");
+        date_default_timezone_set('America/Sao_Paulo');
+        $data = date('Y-m-d');
+        $hora = date('H:i:s');
                 
         //Conecta ao banco e usa a tabela pergunta
         $conexao = mysql_connect("localhost","root","") or print ("Falha na conexao com o servidor");
@@ -27,8 +29,8 @@
         echo("<b>Hora: </b> $hora <br />");
 
         //insere os dados na tabela anúncio
-        $query = "INSERT INTO anuncio (id_usuario,titulo,texto,data_criacao,telefone,email)
-            VALUES ($id_usuario,'".$titulo."', '".$texto."','".$data."','".$telefone."','".$email."')";
+        $query = "INSERT INTO anuncio (id_usuario,titulo,texto,data_criacao,telefone,email,hora_criacao)
+            VALUES ($id_usuario,'$titulo', '$texto','".$data."','$telefone','$email','$hora')";
         mysql_query($query) or die ("Falha na inserção dos dados");
         
         echo('<script type="text/javascript">location.replace("../meus_anuncios.php")</script>');

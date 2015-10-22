@@ -36,9 +36,9 @@
         <li><a href="index.php">Principal</a></li>
     </ul>
 
-    <ul><li><a href="index.php">Perguntas</a></li></ul>
+    <ul><li><a href="perguntas.php">Perguntas</a></li></ul>
 
-    <ul><li><a href="index.php">Anúncios</a></li></ul>
+    <ul><li><a href="anuncios.php">Anúncios</a></li></ul>
     ');  
     }
 ?>

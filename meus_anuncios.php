@@ -49,7 +49,7 @@
                             //echo date('d/m/Y',strtotime($data));
                             $titulo = strtoupper($anuncio["titulo"]);
                             echo ("<table>
-                                <tr><td><small>Postado em: ".date('d/m/Y',strtotime($anuncio["data_criacao"]))."</small></td></tr>
+                                <tr><td><small>Postado em: ".date('d/m/Y',strtotime($anuncio["data_criacao"]))." às ".date('H:i:s',strtotime($anuncio["hora_criacao"]))." </small></td></tr>
                                 <tr><td><b>".$titulo."</b></tr></td>
                                 <tr><td><p>".$anuncio["texto"]."</p></tr></td>                                               
                                 <tr><td align='right'><a href='scripts/editar_anuncio.php?id_anuncio=".$anuncio["id_anuncio"]." title='Editar anúncio'>Editar</a> | 

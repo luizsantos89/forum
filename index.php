@@ -37,10 +37,9 @@
             </div>
 
             <!-- Conteudo da Página -->
-            <div id="conteudo">
-
+            <div id="conteudo">  
+                
             </div>
-
             <!-- Rodapé da Página -->
             <div id="rodape">
                 <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a>, 
