@@ -30,6 +30,7 @@
                     ?>
                 </div>
             </div>
+			<!-- Inclusão de um arquivo padrão de menus -->
             <div id="menus">
                 <?php
                     include("scripts/menu.php");
