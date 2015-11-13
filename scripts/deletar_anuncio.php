@@ -36,7 +36,7 @@
                 <!-- Implementação da área do usuário graficamente-->
                 <div id="area_usuario">
                     <?php
-                        include("usuario.php");
+                        include("usuario_interno.php");
                     ?>
                 </div>
             </div>
@@ -105,8 +105,8 @@
 
             <!-- Rodapé da Página -->
             <div id="rodape">
-                <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a>, 
-                <a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a> e <a href="mailto:glaudem@hotmail.com">Glaudeilson Mendes</a></b> <br >
+                <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a> e
+                <a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a>
             </div>
         </div>
         </center>

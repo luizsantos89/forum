@@ -50,22 +50,19 @@
 
             <!-- Conteudo da Página -->
             <div id="conteudo">
-                <h2>Publique seu anúncio: </h2>
-                <form action='scripts/insere_anuncio.php' method='post' name="form1">Título:
+                <h2>Crie sua comunidade e chame seus amigos: </h2>
+                <form action='scripts/cria_comunidade.php' method='post' name="form1">Título:
                 <?php
                     if(isset($_GET["erro"])){
                         if ($_GET["erro"]==1)
                             echo("<div id=erro>Não pode ficar em branco</div>");
                     }
                 ?>
-                    <input type='text' size='84' name='titulo' /><br /><br />
-                    Descrição mais detalhada<br />
+                    <input type='text' size='84' name='nome' /><br /><br />
+                    Descrição da comunidade:<br />
                     <textarea name='texto' cols='70' rows='10' id='texto' onKeyPress="javascript:limita('texto');">
                     </textarea><br /><br />
-                    Telefone: <input type='text' name='telefone' id='telefone' maxlength='15' size='16'/>
-                    E-mail: <input type='text' name='email' size='52' /><br /><br />
-                    Valor: R$<input type='text' name='valor' size='10' /><br/><br/>
-                    <input type='submit' value='Anunciar' />            
+                    <input type='submit' value='Criar' />            
                 </form><br>
             </div>
 

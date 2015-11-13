@@ -5,6 +5,16 @@
             <link rel="stylesheet" href="estilo/estilo.css" type="text/css" />
             <link rel="stylesheet" href="estilo/menus.css" type="text/css" />
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <script type="text/javascript" language="javascript">
+                function limita(campo){
+                   var tamanho = document.form1[campo].value.length;
+                   var tex=document.form1[campo].value;
+                   if (tamanho>=5) {
+                      document.form1[campo].value=tex.substring(0,499);
+                   }
+                   return true;
+                }
+             </script> 
     </head>
     <body>
         <center>
@@ -38,29 +48,27 @@
 
             <!-- Conteudo da Página -->
             <div id="conteudo">
-                <?php
-                echo("<h2>Publique sua dúvida: </h2>
-                <form action='scripts/insere_pergunta.php' method='post'>Título: ");
+                <h2>Publique sua dúvida: </h2>
+                <form name='form1' action='scripts/insere_pergunta.php' method='post'>
+                    Título:
+                    <?php
                     if(isset($_GET["erro"])){
                         if ($_GET["erro"]==1)
                             echo("<div id=erro>Não pode ficar em branco</div>");
-                    }
-                    echo("<input type='text' size='84' name='titulo' /><br /><br />Digite uma descrição mais detalhada: ");
-                    if(isset($_GET["erro"])){
-                        if ($_GET["erro"]==2)
-                            echo("<div id=erro>Não pode ficar em branco</div>");
-                    }
-                    echo("<br /><textarea name='texto' cols='70' rows='10'></textarea><br /><br/>
+                    }?>
+                    <input type='text' size='84' name='titulo' />
+                    <br /><br />Digite uma descrição mais detalhada:
+                    <br />
+                    <textarea name='texto' cols='70' rows='10' id='texto' onKeyPress="javascript:limita('texto');">
+                    </textarea><br /><br/>
                     <input type='submit' value='Perguntar' />            
                 </form><br>
-                <small>* Todos os campos são obrigatórios</small>");
-                        ?>
             </div>
 
             <!-- Rodapé da Página -->
             <div id="rodape">
-                <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a>, 
-                <a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a> e <a href="mailto:glaudem@hotmail.com">Glaudeilson Mendes</a></b> <br >
+                    <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a> e  
+                    <a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a><br />
             </div>
         </div>
         </center>

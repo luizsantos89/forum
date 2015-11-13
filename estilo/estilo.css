@@ -1,4 +1,201 @@
-/* Página de Estilos do Fórum Pedalando*/
+#perguntas {
+    font-family: Times, Arial, sans-serif;
+    width: 720px;
+    float: left;
+    height: 170px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#analise_resposta {
+    font-family: Times, Arial, sans-serif;
+    width: 720px;
+    float: left;
+    height: 170px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#usuario_analise {
+    width: 170px;
+    background:gainsboro;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    height: 150px;
+    line-height: 1.8em;
+    float: left;
+    font-size: small;
+    display: block;
+}
+
+#resposta_analise {
+    float: left;
+    padding: 10px;
+    height: 150px;
+    width: 480px;
+    display: block;
+}
+
+#anuncios {
+    font-family: Times, Arial, sans-serif;
+    width: 720px;
+    float: left;
+    height: 370px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#outras_comunidades {
+    font-family: Times, Arial, sans-serif;
+    width: 700px;
+    float: left;
+    height: 300px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#usuario_comunidade {
+    width: 150px;
+    background:gainsboro;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    height: 280px;
+    line-height: 1.8em;
+    float: left;
+    font-size: small;
+    text-align: left;
+    display: block;
+}
+
+#conteudo_comunidade {
+    float: left;
+    padding: 10px;
+    height: 150px;
+    width: 500px;
+    display: inline-block;
+}
+
+#conteudo_comunidade h1 {
+    text-align: justify;
+    font-family: Times;
+    font-size: 20px;
+}
+
+#conteudo_comunidade a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#conteudo_comunidade a:hover {
+    text-decoration: underline;
+}
+
+#outras_perguntas {
+    font-family: Times, Arial, sans-serif;
+    width: 700px;
+    float: left;
+    height: 300px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#outros_anuncios {
+    font-family: Times, Arial, sans-serif;
+    width: 700px;
+    float: left;
+    height: 350px;
+    border: 1px black solid;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#usuario_pergunta {
+    width: 150px;
+    background:gainsboro;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    height: 150px;
+    line-height: 1.8em;
+    float: left;
+    font-size: small;
+    display: block;
+}
+
+#usuario_outras_perguntas {
+    width: 150px;
+    background:gainsboro;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    height: 280px;
+    line-height: 1.8em;
+    float: left;
+    font-size: small;
+    display: block;
+}
+
+#usuario_outros_anuncios {
+    width: 260px;
+    background:gainsboro;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    height: 330px;
+    line-height: 1.8em;
+    float: left;
+    font-size: small;
+    display: block;
+}
+
+#conteudo_pergunta {
+    float: left;
+    padding: 10px;
+    height: 150px;
+    width: 500px;
+    display: block;
+}
+
+
+#conteudo_outras_perguntas {
+    //float: left;
+    padding: 10px;
+    padding-left: 180px;
+    height: 280px;
+    width: 660px;
+}
+
+#conteudo_outros_anuncios {
+    //float: left;
+    padding: 10px;
+    //padding-left: 40px;
+    height: 280px;
+    width: 300px;
+    display: inline-block;
+}
+
+#conteudo_outros_anuncios h5 {
+    font-size: 22pt;
+    font-family: Times, Helvetica, Serif;
+    font-style: italic;
+}
+
+#conteudo_pergunta b {
+    font-size: 15pt;
+}
+
+.texto {
+    font-size: 10pt;
+}
 
 body {
 }
@@ -79,10 +276,11 @@ a:hover {
    text-align: justify;
 }
 
-#area table tr td {
+#area_usuario table tr td {
     color: white;
     text-align: justify;
 }
+
 
 #barra_menus {
     width: 100%;
@@ -93,89 +291,57 @@ a:hover {
     padding-top: 15px;
 }
 
+#barra_menus ul {	
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#barra_menus li {
+    display: inline;
+    float: left;
+    height: 100%;
+}
+
+#barra_menus a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+#barra_menus a {
+    display: block;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Arial,"Times New Roman";
+    font-size: 16pt;
+    text-decoration: italic;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    width: 160px;
+}
+
 #erro {
     color: red;
     font-weight: bold;
 }
 
 #conteudo {
-    width: 100%-10px;
-    height: 100%;
-    background: lightyellow;
-    box-shadow: 10px 10px 10px 10px#888888; 
+    width: 98%;
+    //height: 100%;
+    display: inline-block;
+    background: powderblue; 
+    //box-shadow: 10px 10px 10px 10px #888888; 
     border: black 1px;
     padding: 10px;
 }
 
-#conteudo table {
-    width: 250px;
-    height: 250px;
-    float: left;
-    border-radius: 5px;
-    background: lightsalmon;
-    padding: 5px;
-    margin: 5px;
-}
-
-#conteudo td {
-    vertical-align: top;
-    text-align: left;
-    padding: 15px;
-}
-
-#conteudo table a {
-    color: darkred;
-}
-
-#conteudo p {
-    font-size: 10pt;
-    font-family: Times;
-    text-transform: capitalize;
-}
-
-#login {
-    width: 700px;
-    padding: 55px;
-    top: 500px;
-}
-
-#perguntas {
-    width: 290px;
-    height: 275px;
-    float: left;
-    border-radius: 5px;
-    background: lightsalmon;
-    padding: 5px;
-    margin: 5px;
-}
-
-#perguntas textarea {
-    border-radius: 3px;
-    padding: 10px;
-    font-family: Times New Roman;
-    font-style: italic;
-    font-size: 10pt;
-}
-
-#pergunta a {
-    font-family: Arial;
-    font-size: 10pt;
-    color: black;
-    font-weight: bold;
-} 
-
-#pergunta small {
-    font-size: 8pt;
-    font-family: Sans-Serif;
-}
-
-#pergunta p {
-    font-size: 9pt;
-}
-
 #rodape {
     height: 35px;
-    width: 900;
+    width: 900px;
     font-family: Arial, Sans-Serif;
     font-size: 13pt;
     text-align: center;
@@ -184,7 +350,8 @@ a:hover {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     margin-left: 25px;
-    background: darkgreen;
+    background:green;
+	display: block;
 }
 
 #rodape a {
@@ -194,4 +361,92 @@ a:hover {
 
 #rodape a:hover {
     text-decoration: underline;
+}
+
+#barra_lateral {
+    width: 200px;
+    height: 100%;
+    float: left;
+    display: inline-block;
+}
+
+#conteudo_pagina {
+    width: 680px;
+    float: left;
+    display: block;
+}
+
+#conteudo  small {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.5em;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Century Gothic","Segoe UI Light","Times",serif;
+}
+
+#comunidade_selecionada {
+    width: 680px;
+    height: auto;
+    display: block;
+    color: black;
+    padding: 10px;
+}
+
+#comunidade_selecionada b {
+    font-size: 18px;
+    font-family: "Century Gothic",Times;
+    line-height: 1.8em;
+}
+
+#usuarios_comunidade {
+    width: 140px;
+    height: 125%;
+    float: left;
+    padding: 10px;
+    display: block;
+    //border-right: 1px solid black;
+}
+
+#conteudo_comunidade {
+    width: 500px;
+    height: auto;
+}
+
+#descricao_comunidade {
+    width:500px;
+    padding: 10px;
+    margin: 10px;
+    height: 150px;
+}
+
+#mensagens_comunidade {
+    width: 500px;
+    padding: 10px;
+    height: 100%;
+    display: inline;
+}
+
+#mensagem {
+    width: 480px;
+    //border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    //border-radius: 8px;
+}
+
+#mensagem b {
+    font-family: Times;
+    font-size: medium;
+}
+
+#mensagem small {
+    font-weight: normal;
+    font-style: normal;
+    color: black;
+    font-family: Times;
+    font-size: 12px;
 }

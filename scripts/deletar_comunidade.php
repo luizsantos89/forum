@@ -36,7 +36,7 @@
                 <!-- Implementação da área do usuário graficamente-->
                 <div id="area_usuario">
                     <?php
-                        include("usuario_interno.php");	
+                        include("usuario_interno.php");
                     ?>
                 </div>
             </div>
@@ -50,57 +50,54 @@
             <div id="conteudo">
                 <?php 
                     // Verifica se veio da página principal
-                    if(isset($_GET["id_pergunta"])) {
-                        $id_pergunta = (int) $_GET["id_pergunta"];                               
+                    if(isset($_GET["id_comunidade"])) {
+                        $id_comunidade = (int) $_GET["id_comunidade"];                               
 
                         //Buscar dados da pergunta
-                        include("busca_perguntas_usuario.php");
+                        include("busca_comunidades_usuario.php");
 
 
                         //Exibe a pergunta na tela
-                        while ($pergunta = mysql_fetch_assoc($resultado)){ 
-                            if($pergunta["id_pergunta"] == $id_pergunta){
-                                $texto = $pergunta["texto"];
-                                $titulo = $pergunta["titulo"];
+                        while ($comunidade = mysql_fetch_assoc($resultado)){ 
+                            if($comunidade["id_comunidade"] == $id_comunidade){
+                                $texto = $comunidade["descricao"];
+                                $titulo = $comunidade["nome"];
                                 
-                                echo ("<h1>Confirme as edições: </h1>      
-                                    <small>Preencha todos os campos: </small><br />
-                                <form action='editar_pergunta.php' method='post'>
-                                        Pergunta: <br /><textarea name='titulo' cols='60' rows='1' placeholder='".$titulo."'></textarea><br /><br />
-                                        Detalhes: <br /><textarea name='texto' cols='60' rows='10' placeholder='".$texto."'></textarea></td><br /><br />
-                                        Confirma a edição? 
+                                echo ("<h1>Dados da Comunidade </h1>                                        
+                                <form action='deletar_comunidade.php' method='post'>
+                                        Comunidade: <br /><textarea name='titulo' cols='60' rows='1'>$titulo</textarea><br /><br />
+                                        Detalhes: <br /><textarea name='texto' cols='60' rows='10'>$texto</textarea></td><br /><br />
+                                        Confirma a exclusão? 
                                         <input type='radio' name='confirma' value='sim' />Sim 
                                         <input type='radio' name='confirma' value='nao' />Não <br /><br />
-                                        <input type='hidden' name='id_pergunta' value=".$id_pergunta." />
-                                        <input type='submit' value='Editar' />
+                                        <input type='hidden' name='id_comunidade' value=".$id_comunidade." />
+                                        <input type='submit' value='Excluir' />
                                 </form>");
                             }
                         }
                     }
                     
                     //Verifica se já foi confirmado a edição
-                    if (isset($_POST["id_pergunta"])) {
+                    if (isset($_POST["id_comunidade"])) {
                         if($_POST["confirma"]=="sim") {
                             
                             //Busca as informações das perguntas
-                            include("busca_perguntas_usuario.php");
+                            include("busca_comunidades_usuario.php");
                             
                             //Exibe a pergunta na tela
-                            $id_pergunta = (int) $_POST["id_pergunta"];
+                            $id_comunidade = (int) $_POST["id_comunidade"];
                             $titulo = $_POST["titulo"];
                             $texto = $_POST["texto"];
-                            while ($pergunta = mysql_fetch_assoc($resultado)){ 
-                                if($pergunta["id_pergunta"] == $id_pergunta){
-                                    $altera = "UPDATE pergunta 
-                                                    SET titulo = '".$titulo."', texto = '".$texto."' 
-                                                    WHERE id_pergunta = ".$id_pergunta."";
+                            while ($comunidade = mysql_fetch_assoc($resultado)){ 
+                                if($comunidade["id_comunidade"] == $id_comunidade){
+                                    $altera = "DELETE from comunidade WHERE id_comunidade = ".$id_comunidade."";
                                     $alterar = mysql_query($altera) or die ("Falha na atualização dos dados");
-                                    echo("Alterado com sucesso! <br><br><a href='../minhas_perguntas.php'>Voltar para minhas perguntas</a>");
+                                    echo("Deletado com sucesso! <br><br><a href='../minhas_comunidades.php'>Voltar para minhas comunidades</a>");
                                 }
                             }
                             } else {
                                 echo("Nada foi alterado");
-                                echo("<br><br><a href='../minhas_perguntas.php'>Voltar para minhas perguntas</a>");
+                                echo("<br><br><a href='../minhas_comunidades.php'>Voltar para minhas comunidades</a>");
                             }
                         }
                 ?>

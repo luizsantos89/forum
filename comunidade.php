@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 <html>
     <head>
-        <title> Pedalando :: O seu fórum sobre ciclismo </title>
+            <title> Pedalando :: O seu fórum sobre ciclismo </title>
             <link rel="stylesheet" href="estilo/estilo.css" type="text/css" />
             <link rel="stylesheet" href="estilo/menus.css" type="text/css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
         <center>
@@ -42,9 +42,9 @@
                     
                 </div>
                 <div id="conteudo_pagina">
-                 <?php
-                     include("includes/outras_perguntas.php");
-                 ?>
+                <?php
+                    include("includes/comunidade.php");
+                ?>
                 </div>
             </div>
 

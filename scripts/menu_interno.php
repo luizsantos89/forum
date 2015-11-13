@@ -26,6 +26,14 @@
         </ul>
     </li></ul>
     
+    <ul><li><a href="../comunidades.php">Comunidades</a>
+        <ul>
+            <li><a href="../minhas_comunidades.php">Minhas Comunidades</a></li>
+            <li><a href="../comunidades.php">Comunidades</a></li>
+            <li><a href="../nova_comunidade.php">Criar uma comunidade</a></li>
+        </ul>
+    </li></ul>
+    
     <ul>
         <li><a href="../scripts/logout.php">Sair</a></li>
     </ul>
@@ -39,6 +47,8 @@
     <ul><li><a href="../index.php">Perguntas</a></li></ul>
 
     <ul><li><a href="../index.php">Anúncios</a></li></ul>
+    
+    <ul><li><a href="../comunidades.php">Comunidades</a></li></ul>
     ');  
     }
 ?>

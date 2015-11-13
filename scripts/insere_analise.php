@@ -36,35 +36,13 @@
                 <!-- Implementação da área do usuário graficamente-->
                 <div id="area_usuario">
                     <?php
-                        if (isset($_COOKIE["usuario"]))
-                            echo("Bem vindo, ".$_COOKIE["usuario"].' | 
-                                    <form action="index.php" method="post">
-                                         <input type="hidden" name="sair" />
-                                         <input type="submit" value="Sair" />
-                                    </form>');
-                        else {
-                            echo("
-                            <form action='../login.php' method='post'>
-                                User: <input type='text' name='usuario' size='8' /><br />
-                                Senha: <input type='password' name='senha' size='8' /><br />
-                                <input type='submit' value='Entrar' />
-                            </form>
-                            ");
-                            }	
+                        include("usuario_interno.php");	
                     ?>
                 </div>
             </div>
             <div id="menus">
                 <?php
-                    echo('
-                    <ul>
-                        <li><a href="../index.php">Principal</a>
-                        <li><a href="../minhas_perguntas.php">Minhas Perguntas</a>
-                        <li><a href="../nova_pergunta.php">Perguntar</a>
-                        <li><a href="../analise_respostas.php">Analisar Respostas</a>
-                        <li><a href="../perguntas.php">Perguntas de Outros Usuários</a>
-                    </ul>
-                    ');
+                    include("menu_interno.php");
                 ?>
             </div>
 
@@ -113,8 +91,8 @@
 
             <!-- Rodapé da Página -->
             <div id="rodape">
-                <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a>, 
-                <a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a> e <a href="mailto:glaudem@hotmail.com">Glaudeilson Mendes</a></b> <br >
+                <b>Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a> e
+                <a href="gil_ferreirafilho@yahoo.com.br">Gilmar Ferreira</a>
             </div>
         </div>
         </center>
