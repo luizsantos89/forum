@@ -9,18 +9,16 @@
         $id_comunidade = $_POST["id_comunidade"];
         $id_usuario = $_SESSION["id_usuario"];
         $participar = (string) $_POST["participar"];
-        echo("Partipar? $participar <br />");
         if($participar == "sim") {
-            echo("Entrando na comunidade<br>");
             date_default_timezone_set('America/Sao_Paulo');
             $data = date('Y-m-d');
             $hora = date('H:i:s');
 
-            //imprime as informações na tela
+            /*/*imprime as informações na tela
             echo("id_comunidade = $id_comunidade <br />");
             echo("id_usuario = $id_usuario <br />");
             echo("data = $data <br />");
-            echo("hora = $hora <br />");
+            echo("hora = $hora <br />");*/
 
             //conexão e seleção da base de dados
             mysql_connect("localhost","root","") or die ("falha na conexao com o bd"); 
@@ -31,12 +29,10 @@
                     VALUES($id_usuario,$id_comunidade,'$data','$hora')";
             mysql_query($query) or die ("Falha na inserção dos dados");
             
-            echo ($query);
             //Redireciona para a página da comunidade
-            echo('<script type="text/javascript">location.replace("../comunidades.php")</script>');
+            echo('<script type="text/javascript">location.replace("../comunidade.php?id_comunidade='.$id_comunidade.'")</script>');
         }
         if($participar == "nao") {
-            echo("Saindo na comunidade<br>");
             //conexão e seleção da base de dados
             mysql_connect("localhost","root","") or die ("falha na conexao com o bd"); 
             mysql_select_db("forum") or die ("falha na seleção do BD");
@@ -47,9 +43,8 @@
             mysql_query($query2) or die ("Falha na inserção dos dados");
             
             
-            echo ($query2);
             //Redireciona para a página da comunidade
-            echo('<script type="text/javascript">location.replace("../comunidades.php")</script>');
+            echo('<script type="text/javascript">location.replace("../comunidade.php?id_comunidade='.$id_comunidade.'")</script>');
         }
     } else { echo 'Houve uma falha'; }
 ?>

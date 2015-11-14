@@ -30,7 +30,7 @@
 
             //insere os dados na tabela anúncio
             $query = "INSERT INTO comunidade (id_usuario,nome,descricao,data_criacao,hora_criacao)
-                VALUES ($id_usuario,'$nome_comunidade', '$descricao','$data','$hora')";
+                VALUES ($id_usuario,'$nome_comunidade', '$descricao','$data','$hora');"; 
             mysql_query($query) or die ("Falha na inserção dos dados");
             
         }
