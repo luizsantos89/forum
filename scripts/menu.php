@@ -29,7 +29,7 @@
     <ul><li><a href="comunidades.php">Comunidades</a>
         <ul>
             <li><a href="minhas_comunidades.php">Minhas Comunidades</a></li>
-            <li><a href="comunidades.php">Comunidades</a></li>
+            <li><a href="comunidades.php">Outras Comunidades</a></li>
             <li><a href="nova_comunidade.php">Criar uma comunidade</a></li>
         </ul>
     </li></ul>

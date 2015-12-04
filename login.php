@@ -61,6 +61,9 @@
                         } else {
                             $user = $_POST["usuario"];
                             $senha = $_POST["senha"];
+                            if (isset($_POST["url"])) {
+                                $url = $_POST["url"];
+                            }
 
                             include("/scripts/conecta_usuario.php");                                
                             
@@ -77,8 +80,12 @@
                                         $_SESSION["apelido"] = $usuarios["apelido"];
                                         $_SESSION["data_cadastro"] = date('d/m/Y',  strtotime($usuarios["data_cadastro"]));
                                         $_SESSION["hora_cadastro"] = date('H:i:s',  strtotime($usuarios["hora_cadastro"]));
-                                        echo('<script type="text/javascript">location.replace("index.php")</script>');
+                                        if (isset($url)) {
+                                            Header("Location: $url");
                                         } else {
+                                            header("Location: index.php");
+                                        }
+                                    } else {
                                             echo("
                                             <div id='login'>
                                                 <div id=erro>Usuário/Senha incorreto</div>                                                        
@@ -106,13 +113,26 @@
                         }
                     }
                     else {
+                        if (isset($_GET["request"])) {
+                            if($_GET["request"] == "cadastro"){
+                                echo('<div id="msgerro">Cadastro feito com sucesso</div>');
+                            }
+                        }
                         echo("
                             <div id='login'>
                                 <form action='login.php' method='post'>
-                                    Login: <input type='text' name='usuario' /><br/><br/>
-                                    Senha: <input type='password' name='senha' /><br /><br />
-                                    <input type='submit' value='Entrar' />
-                                </form>
+                                  <table>
+                                    <tr><td>Login: </td>
+                                        <td><input type='text' name='usuario' /></td>
+                                    </tr>
+                                    <tr><td>Senha: </td>
+                                    <td><input type='password' name='senha' /></td></tr>");                       
+                        if (isset($_GET["url"])) {
+                            $url = $_GET["url"];
+                            echo("<input type='hidden' name='url' value=$url />");
+                        }
+                            echo("<tr><td colspan='2'><input type='submit' value='Entrar' /></td></tr>
+                                </table></form>
                             </div>
                         ");
                     }

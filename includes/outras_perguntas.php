@@ -1,4 +1,9 @@
 <?php
+//Pega a URL atual
+$servidor = $_SERVER['SERVER_NAME'];
+$local = $_SERVER ['REQUEST_URI'];
+$url = "http://".$servidor.$local;
+
 //Conecta ao servidor MySQL
 $conecta = mysql_connect("localhost","root","") or print 'Sem conexão';
 
@@ -26,7 +31,7 @@ while ($pergunta = mysql_fetch_assoc($query)){
                     Hora da criação: '.$horario.' <br />
                 </div>
                 <div id="conteudo_outras_perguntas">
-                    <b>'.strtoupper($pergunta["titulo"]).'</b>
+                    <b><a href="pergunta.php?id_pergunta='.$pergunta["id_pergunta"].'">'.strtoupper($pergunta["titulo"]).'</a></b>
                     <p class="texto">'.$pergunta["texto"].'</p>
                     <form action="scripts/publicar_resposta.php" method="post">
                         <input type="hidden" value='.$id_pergunta.' name="id_pergunta" />
@@ -53,6 +58,7 @@ while ($pergunta = mysql_fetch_assoc($query)){
                 <form action="scripts/publicar_resposta.php" method="post">
                     <input type="hidden" value='.$id_pergunta.' name="id_pergunta" />
                     <input type="hidden" value='.$apelido.' name="apelido" />
+                    <input type="hidden" value='.$url.' name="url" />
                     <textarea name="resposta" placeholder="Sabe a resposta? Só preencher aqui ;) ..." cols="42" rows="4"></textarea><br />
                     <input type="submit" value="Responder" />
                 </form>

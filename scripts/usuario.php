@@ -12,7 +12,7 @@
                 $usuario = $_SESSION["apelido"];
                 $hora = $usuarios["hora_cadastro"];
                 $data = $usuarios["data_cadastro"];
-                echo("Bem vindo, <a href='index.php'>".$usuario.'</a> 
+                echo("Bem vindo, <a href='perfil.php'>".$usuario.'</a> 
                 | <a href="scripts/logout.php">Sair</a><br />');
        
                 echo("<small>Usuário desde: ".date('d/m/Y',strtotime($data))." - " 
@@ -32,7 +32,7 @@
             <tr><td>Senha: </td><td><input type='password' name='senha' size='16' /></td></tr>
             <tr><td align='center'><input type='submit' value='Entrar' /></td>
         </form>
-        <form action='index.php' method='get'>
+        <form action='cadastro.php' method='post'>
             <td align='center'><input type='submit' value='Cadastrar' /></td></tr>
         </form>
         </table></center>

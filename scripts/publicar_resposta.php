@@ -106,11 +106,11 @@
                                 echo("
                                   <div id='resposta_confirm'>  
                                     <h2> Pergunta: </h2>
-                                    ".strtoupper($titulo_pergunta)."<br />
+                                    ".strtoupper($titulo_pergunta)."<br /><br />
                                     <h3>Sua resposta: </h3>
-                                    $resposta</i><br /><br />
+                                    $resposta</i><br /><br /><br />
                                 ");
-                                echo("Obrigado por responder<br /><br />");
+                                echo("Obrigado por responder ! Assim que for analisada, será postada na página da pergunta! ;D<br /><br /><br /><br />");
                                 echo("Voltar para: <a href='../perguntas.php'>Perguntas</a> | <a href='../index.php'>Início</a>");
                                 echo('</div>');
                             } else {
@@ -119,7 +119,8 @@
                             }
                         }
                     } else {
-                        header("Location:../login.php");
+                        $url = $_POST["url"];
+                        header("Location:../login.php?url=$url");
                     }
                     ?>
                 </div>

@@ -39,14 +39,10 @@
             <!-- Conteudo da PÃ¡gina -->
             <div id="conteudo">
                 <div id="barra_lateral">
-                    
+                    <?php include("includes/edicao_perfil.php"); ?>
                 </div>
                 <div id="conteudo_pagina">
-                    <?php
-                        if(isset($_GET["perfil_excluido"])) {
-                            echo("<small>Perfil excluído com sucesso </small><br />");
-                        }
-                    ?>
+                    <?php include("includes/perfil.php"); ?>
                 </div>
             </div>
 

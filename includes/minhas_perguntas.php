@@ -21,8 +21,8 @@
                         <a href="scripts/deletar_pergunta.php?id_pergunta='.$pergunta["id_pergunta"].'"><img src="imagens/delete.png" title="Deletar" /></a>
                     </div>
                     <div id="conteudo_pergunta">
-                        <b>'.strtoupper($pergunta["titulo"]).'</b>
-                        <p class="texto">'.$pergunta["texto"].'</p>
+                    <b><a href="pergunta.php?id_pergunta='.$pergunta["id_pergunta"].'">'.strtoupper($pergunta["titulo"]).'</a></b>
+                    <p class="texto">'.$pergunta["texto"].'</p>
                     </div>
                 </div>
             ');

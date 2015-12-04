@@ -48,43 +48,40 @@
 
             <!-- Conteudo da Página -->
             <div id="conteudo">
-                <?php 
-                    // Verifica se veio da página principal
-                    if(isset($_GET["id_pergunta"])) {
-                        $id_pergunta = (int) $_GET["id_pergunta"];                               
+                <div id="barra_lateral"></div>
+                <div id="conteudo_pagina">
+                    <?php 
+                        // Verifica se veio da página principal
+                        if(isset($_GET["id_pergunta"])) {
+                            $id_pergunta = (int) $_GET["id_pergunta"];                               
 
-                        //Buscar dados da pergunta
-                        include("busca_perguntas_usuario.php");
+                            //Buscar dados da pergunta
+                            include("busca_perguntas_usuario.php");
 
 
-                        //Exibe a pergunta na tela
-                        while ($pergunta = mysql_fetch_assoc($resultado)){ 
-                            if($pergunta["id_pergunta"] == $id_pergunta){
-                                $texto = $pergunta["texto"];
-                                $titulo = $pergunta["titulo"];
-                                
-                                echo ("<h1>Confirme as edições: </h1>      
-                                    <small>Preencha todos os campos: </small><br />
-                                <form action='editar_pergunta.php' method='post'>
-                                        Pergunta: <br /><textarea name='titulo' cols='60' rows='1' placeholder='".$titulo."'></textarea><br /><br />
-                                        Detalhes: <br /><textarea name='texto' cols='60' rows='10' placeholder='".$texto."'></textarea></td><br /><br />
-                                        Confirma a edição? 
-                                        <input type='radio' name='confirma' value='sim' />Sim 
-                                        <input type='radio' name='confirma' value='nao' />Não <br /><br />
-                                        <input type='hidden' name='id_pergunta' value=".$id_pergunta." />
-                                        <input type='submit' value='Editar' />
-                                </form>");
+                            //Exibe a pergunta na tela
+                            while ($pergunta = mysql_fetch_assoc($resultado)){ 
+                                if($pergunta["id_pergunta"] == $id_pergunta){
+                                    $texto = $pergunta["texto"];
+                                    $titulo = $pergunta["titulo"];
+
+                                    echo ("<h1>Confirme as edições: </h1>      
+                                        <small>Preencha todos os campos: </small><br />
+                                    <form action='editar_pergunta.php' method='post'>
+                                            Pergunta: <br /><input name='titulo' size='60' value='".$titulo."' /><br /><br />
+                                            Detalhes: <br /><textarea name='texto' cols='60' rows='10'>$texto</textarea></td><br /><br />
+                                            <input type='hidden' name='id_pergunta' value=".$id_pergunta." />
+                                            <input type='submit' value='Editar' />
+                                    </form>");
+                                }
                             }
                         }
-                    }
-                    
-                    //Verifica se já foi confirmado a edição
-                    if (isset($_POST["id_pergunta"])) {
-                        if($_POST["confirma"]=="sim") {
-                            
+
+                        //Verifica se já foi confirmado a edição
+                        if (isset($_POST["id_pergunta"])) {                            
                             //Busca as informações das perguntas
                             include("busca_perguntas_usuario.php");
-                            
+
                             //Exibe a pergunta na tela
                             $id_pergunta = (int) $_POST["id_pergunta"];
                             $titulo = $_POST["titulo"];
@@ -98,12 +95,9 @@
                                     echo("Alterado com sucesso! <br><br><a href='../minhas_perguntas.php'>Voltar para minhas perguntas</a>");
                                 }
                             }
-                            } else {
-                                echo("Nada foi alterado");
-                                echo("<br><br><a href='../minhas_perguntas.php'>Voltar para minhas perguntas</a>");
-                            }
-                        }
-                ?>
+                         } 
+                    ?>
+                </div>
             </div>
 
             <!-- Rodapé da Página -->

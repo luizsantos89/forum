@@ -33,9 +33,10 @@
         //insere os dados na tabela anúncio
         $query = "INSERT INTO anuncio (id_usuario,titulo,texto,data_criacao,telefone,email,hora_criacao,valor)
             VALUES ($id_usuario,'$titulo', '$texto','$data','$telefone','$email','$hora', $valor)";
+        echo($query);
         mysql_query($query) or die ("Falha na inserção dos dados");
         
-        echo('<script type="text/javascript">location.replace("../meus_anuncios.php")</script>');
+       // echo('<script type="text/javascript">location.replace("../meus_anuncios.php")</script>');
     }
     
 ?>

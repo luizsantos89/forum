@@ -36,24 +36,26 @@
     echo("Data: $data - Hora: $horario <br /><br />");
     
     //Inserindo 3 usuários de teste 
-    echo("Usuário criado: ");
-    $insereUsuario1 = "INSERT INTO usuario(nome,senha,login,apelido,cidade,estado,data_cadastro, hora_cadastro) 
-        VALUES ('Luiz Claudio Afonso dos Santos','123456','luizsantos89','Luiz Santos','Juiz de Fora','MG','$data','$horario')";
-    $insere1 = mysql_query($insereUsuario1) or die ("Falha na inserção do usuario 1");
-    echo("luizsantos89, senha: 123456 <br />");
+    $insereUsuario1 = "INSERT INTO usuario(nome,senha,login,apelido,cidade,estado,data_cadastro, hora_cadastro, hora_ultimo_acesso, data_ultimo_acesso) 
+        VALUES ('Luiz Claudio Afonso dos Santos','123456','usuario1','Luiz Santos','Juiz de Fora','MG','$data','$horario','$horario','$data')";
     
     echo("Usuário criado: ");
-    $insereUsuario2 = "INSERT INTO usuario(nome,senha,login,apelido,cidade,estado,data_cadastro, hora_cadastro) 
-        VALUES ('Gilmar Ferreira Filho','123456','gilferreirafilho','Gilmar Ferreira','Santos Dumont','MG','$data','$horario')";
-    $insere2 = mysql_query($insereUsuario2) or die ("Falha na inserção do usuario 2");
-    echo("gilferreirafilho, senha: 123456 <br />");
-    /*
+    $insere1 = mysql_query($insereUsuario1) or die ("Falha na inserção do usuario 1");
+    echo("usuario1, senha: 123456 <br />");
+    
     echo("Usuário criado: ");
-    $insereUsuario3 = "INSERT INTO usuario(nome,senha,login,apelido,cidade,estado,data_cadastro, hora_cadastro) 
-        VALUES ('Glaudeilson Mendes','123456','glaudeilson','Glaudeilson','Santos Dumont','MG','$data','$horario')";
-    $insere3 = mysql_query($insereUsuario3) or die ("Falha na inserção do usuario 3");
-    echo("glaudeilson, senha: 123456 <br /><br />");
-    */
+    $insereUsuario2 = "INSERT INTO usuario(nome,senha,login,apelido,cidade,estado,data_cadastro, hora_cadastro, hora_ultimo_acesso, data_ultimo_acesso) 
+        VALUES ('Gilmar Ferreira Filho','123456','usuario2','Gilmar Ferreira','Santos Dumont','MG','$data','$horario','$horario','$data')";
+    $insere2 = mysql_query($insereUsuario2) or die ("Falha na inserção do usuario 2");
+    echo("usuario2, senha: 123456 <br />");
+    
+    echo("Usuário criado: ");
+    $insereUsuario3 = "INSERT INTO usuario(nome,senha,login,apelido,cidade,estado,data_cadastro, hora_cadastro, hora_ultimo_acesso, data_ultimo_acesso) 
+        VALUES ('Usuário','123456','usuario3','CES Juiz de Fora','Juiz de Fora','MG','$data','$horario','$horario','$data')";
+    $insere3 = mysql_query($insereUsuario3) or die ("Falha na inserção do usuario 2");
+    echo("usuario3, senha: 123456 <br />");
+    
+    
     //Criando tabela Perguntas
     $criandoPerguntas = "CREATE TABLE pergunta(
                             id_pergunta INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -123,6 +125,10 @@
                 data_postagem DATE,
                 hora_postagem TIME);";
     $criarMensagem = mysql_query($criandoMensagem) or die ("Falha na criação da tabela mensagem");
+    
+    //Inserindo algumas perguntas
+    include("scripts/insereTestes.php");
+    
     //Criado com sucesso
     echo ("Estrutura criada com sucesso<br /><br />");
     echo ("<a href='index.php'>Ir para o Projeto</a>");

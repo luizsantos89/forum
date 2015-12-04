@@ -2,8 +2,9 @@
 <html>
     <head>
         <title> Pedalando :: O seu fórum sobre ciclismo </title>
-            <link rel="stylesheet" href="../estilo/estilo.css" type="text/css" />
-            <link rel="stylesheet" href="../estilo/menus.css" type="text/css" />
+        <link rel="stylesheet" href="../estilo/estilo.css" type="text/css" />
+        <link rel="stylesheet" href="../estilo/menus.css" type="text/css" />
+        <script type="text/javascript" src="../scripts/telefone.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             th {
@@ -48,62 +49,69 @@
 
             <!-- Conteudo da Página -->
             <div id="conteudo">
-                <?php 
-                    // Verifica se veio da página principal
-                    if(isset($_GET["id_anuncio"])) {
-                        $id_anuncio = (int) $_GET["id_anuncio"];                               
+                <div id="barra_lateral"></div>
+                <div id="conteudo_pagina">
+                    <?php 
+                        // Verifica se veio da página principal
+                        if(isset($_GET["id_anuncio"])) {
+                            $id_anuncio = (int) $_GET["id_anuncio"];                               
 
-                        //Buscar dados da pergunta
-                        include("busca_anuncios_usuario.php");
+                            //Buscar dados da pergunta
+                            include("busca_anuncios_usuario.php");
 
 
-                        //Exibe a pergunta na tela
-                        while ($anuncio = mysql_fetch_assoc($resultado)){ 
-                            if($anuncio["id_anuncio"] == $id_anuncio){
-                                $texto = $anuncio["texto"];
-                                $titulo = $anuncio["titulo"];
-                                
-                                echo ("<h1>Confirme as edições: </h1> 
-                                    <small>Preencher todos os campos</small><br /><br />
-                                <form action='editar_anuncio.php' method='post'>
-                                        Pergunta: <br /><textarea name='titulo' cols='60' rows='1' placeholder='".$titulo."'></textarea><br /><br />
-                                        Detalhes: <br /><textarea name='texto' cols='60' rows='10' placeholder='".$texto."'></textarea></td><br /><br />
-                                        Confirma a edição? 
-                                        <input type='radio' name='confirma' value='sim' />Sim 
-                                        <input type='radio' name='confirma' value='nao' />Não <br /><br />
-                                        <input type='hidden' name='id_anuncio' value=".$id_anuncio." />
-                                        <input type='submit' value='Editar' />
-                                </form>");
+                            //Exibe a pergunta na tela
+                            while ($anuncio = mysql_fetch_assoc($resultado)){ 
+                                if($anuncio["id_anuncio"] == $id_anuncio){
+                                    $texto = $anuncio["texto"];
+                                    $titulo = $anuncio["titulo"];
+                                    $valor = $anuncio["valor"];
+                                    $telefone = $anuncio["telefone"];
+                                    $email = $anuncio["email"];
+
+                                    echo ("<h1>Confirme as edições: </h1>
+                                    <form action='editar_anuncio.php' method='post'>
+                                        <table>
+                                            <tr><td>Pergunta: </td><td><input name='titulo' size='60'  value='".$titulo."' /></td></tr>
+                                            <tr><td colspan='2'>Detalhes: <br /></td></tr>
+                                            <tr><td colspan='2'><textarea name='texto' cols='60' rows='10'>$texto</textarea></td></tr>
+                                            <tr><td>E-mail: </td><td><input name='email' size='60'  value='".$email."' /></td></tr>
+                                            <tr><td>Telefone: </td><td><input name='telefone' size='60' id='telefone' value='".$telefone."' /></td></tr>
+                                            <tr><td>Valor: </td><td>R$<input name='valor' size='57'  value='".$valor."' /></td></tr>
+                                            <input type='hidden' name='id_anuncio' value=".$id_anuncio." /></td></tr>
+                                            <tr><td colspan='2'><input type='submit' value='Editar' /></td></tr>
+                                        </table>
+                                    </form>");
+                                }
                             }
                         }
-                    }
-                    
-                    //Verifica se já foi confirmado a edição
-                    if (isset($_POST["id_anuncio"])) {
-                        if($_POST["confirma"]=="sim") {
-                            
+
+                        //Verifica se já foi confirmado a edição
+                        if (isset($_POST["id_anuncio"])) {                            
                             //Busca as informações das perguntas
                             include("busca_anuncios_usuario.php");
-                            
+
                             //Exibe a pergunta na tela
                             $id_anuncio = (int) $_POST["id_anuncio"];
                             $titulo = $_POST["titulo"];
-                            $texto = $_POST["texto"];
+                            $texto = $_POST["texto"];    
+                            $email = $_POST["email"];
+                            $telefone = $_POST["telefone"];
+                            $valor = $_POST["valor"];
                             while ($anuncio = mysql_fetch_assoc($resultado)){ 
                                 if($anuncio["id_anuncio"] == $id_anuncio){
                                     $altera = "UPDATE anuncio 
-                                                    SET titulo = '".$titulo."', texto = '".$texto."' 
+                                                    SET titulo='$titulo', texto='$texto',
+                                                        email='$email', telefone='$telefone',
+                                                        valor=$valor
                                                     WHERE id_anuncio = ".$id_anuncio."";
                                     $alterar = mysql_query($altera) or die ("Falha na atualização dos dados");
                                     echo("Alterado com sucesso! <br><br><a href='../meus_anuncios.php'>Voltar para meus anúncios</a>");
                                 }
                             }
-                            } else {
-                                echo("Nada foi alterado");
-                                echo("<br><br><a href='../meus_anuncios.php'>Voltar para meus anúncios</a>");
-                            }
-                        }
-                ?>
+                        } 
+                    ?>
+                </div>
             </div>
 
             <!-- Rodapé da Página -->

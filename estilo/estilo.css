@@ -8,6 +8,47 @@
     margin-bottom: 10px;
 }
 
+.excluirperfil {
+    background: red;
+    border: red;
+    color: white;
+    font-weight: bolder;
+}
+
+fieldset {
+    border-radius: 8px;
+    padding: 10px;
+    line-height: 2.8em;
+    font-family: "Century Gothic",Times,serif;
+}
+
+#msgerro {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-align: center;
+}
+
+table {
+    text-align: left;
+}
+
+tr {
+    //line-height: 2em;
+}
+
+
+#conteudo_pagina td {
+    padding: 10px;
+}
+
+.maiusculas {
+    text-transform: uppercase;
+}
+
 #analise_resposta {
     font-family: Times, Arial, sans-serif;
     width: 720px;
@@ -195,13 +236,15 @@
 
 .texto {
     font-size: 10pt;
+    width: 300px;
 }
 
 body {
 }
 
-a {
+a, a:visited {
     text-decoration: none;
+    color: darkgreen;
 }
 
 a:hover {
@@ -364,16 +407,32 @@ a:hover {
 }
 
 #barra_lateral {
-    width: 200px;
+    width: 180px;
     height: 100%;
+    padding: 16px;
     float: left;
     display: inline-block;
+    text-align: left;
+    font-family: "Century Gothic",Verdana, serif;
+    font-size: 14px;
+}
+
+.input_transp {
+    //background: transparent;
+   // border: 0;
+    color: darkgreen;
+    font-size: 14pt;
+    font-family: "Century Gothic", "Segoe UI Light", Verdana, serif; 
 }
 
 #conteudo_pagina {
     width: 680px;
     float: left;
     display: block;
+}
+
+#conteudo_pagina form {
+    font-family: "Century Gothic", "Segoe UI Light", Verdana, serif;
 }
 
 #conteudo  small {
@@ -408,34 +467,39 @@ h1 {
     float: left;
     padding: 10px;
     display: block;
-    //border-right: 1px solid black;
 }
 
 #conteudo_comunidade {
     width: 500px;
     height: auto;
+    padding-top: 3px;
+}
+
+#conteudo_comunidade b {
+    font-size: 16pt;
+    line-height: 2em;
 }
 
 #descricao_comunidade {
     width:500px;
-    padding: 10px;
-    margin: 10px;
-    height: 150px;
+    height: 130px;
+    //border-bottom: 1px solid black;
 }
 
 #mensagens_comunidade {
     width: 500px;
-    padding: 10px;
+    //padding: 10px;
+    //margin: 10px;
     height: 100%;
     display: inline;
 }
 
 #mensagem {
-    width: 480px;
-    //border: 1px solid black;
+    width: 460px;
+    border: 1px solid black;
     padding: 10px;
     margin: 10px;
-    //border-radius: 8px;
+    border-radius: 8px;
 }
 
 #mensagem b {
@@ -449,4 +513,8 @@ h1 {
     color: black;
     font-family: Times;
     font-size: 12px;
+}
+
+#login {
+    padding: 12px;
 }

@@ -1,4 +1,9 @@
 <?php
+//Pega a URL atual
+$servidor = $_SERVER['SERVER_NAME'];
+$local = $_SERVER ['REQUEST_URI'];
+$url = "http://".$servidor.$local;
+
 //Conecta ao servidor MySQL
 $conecta = mysql_connect("localhost","root","") or print 'Sem conexão';
 
