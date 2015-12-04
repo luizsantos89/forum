@@ -54,14 +54,15 @@
             
             if (isset($comunidades_nome) && ($comunidades_nome[0] != null)) {
                 echo("Participa das comunidades: <br />");
-            }
-            
-            for ($i=0; $i<=$cont; $i++) {
-                if (isset($comunidades_id)){
-                    echo("<a href='comunidade.php?id_comunidade=".$comunidades_id[$i]);
-                    echo("'>".$comunidades_nome[$i]."</a><br />");
+                for ($i=0; $i<$cont; $i++) {
+                    if (isset($comunidades_id)){
+                        $id_comunidade = $comunidades_id[$i];
+                        echo("<a href='comunidade.php?id_comunidade=".$id_comunidade);
+                        echo("'>".$comunidades_nome[$i]."</a><br />");
+                    }
                 }
             }
+            
         }
     } else {
         $servidor = $_SERVER['SERVER_NAME'];

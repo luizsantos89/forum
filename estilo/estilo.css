@@ -497,6 +497,7 @@ h1 {
 #mensagem {
     width: 460px;
     border: 1px solid black;
+    font-family: "Century Gothic",Times,serif;
     padding: 10px;
     margin: 10px;
     border-radius: 8px;

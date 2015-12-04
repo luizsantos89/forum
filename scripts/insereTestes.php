@@ -52,20 +52,7 @@ mysql_query($insereResp4) or die("Falha na inserção da 4 resposta") ;
 $insereComunidade = "INSERT INTO comunidade(id_usuario,nome,descricao, data_criacao, hora_criacao)
                 VALUES(1,'Produtos falsos, piratas e réplicas - Liste aqui','Pessoal,
 
-Tomei a iniciativa de criar esse tópico para centralizar as informações, já que o que sabemos está espalhado em muitos tópicos.
-
-Gostaria de manter esse tópico como um oficial centralizado para nós como consumidores conseguirmos nos proteger de produtos que podem até nos matar e que alimentam uma rede de falsificadores sangue-sugas.
-
-Para ficar organizado, também gostaria que todo mundo que acrescentar um produto, tentasse ao máximo seguir o modelo abaixo:
-
-Marca, modelo e ano do produto:
-Data em que foi visto a venda:
-Característica que faz aparentar ou comprova que é um produto não-original: 
-Foto do produto falso:
-Foto do produto original:
-Também gostaria de lembrar que é preciso de responsabilidade para alimentar um tópico desse. Não há nada de errado em PERGUNTAR / QUESTIONAR sobre um produto, mas caso vc esteja AFIRMANDO, é diferente. É sempre melhor evitar qualquer tipo de ataque sem comprovação.
-
-Em breve vou escrever / centralizar um pouco mais sobre a confusão que existe com produtos OEM vs Falsos vsReplicas.','$data','$horario');";
+Tomei a iniciativa de criar esse tópico para centralizar as informações.','$data','$horario');";
 mysql_query($insereComunidade) or die("Falha na criação da comunidade");
 
 $insereAnuncio1 = "INSERT INTO anuncio (id_usuario,titulo,texto,data_criacao,telefone,email,hora_criacao,valor) 

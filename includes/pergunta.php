@@ -61,7 +61,7 @@
                             case 2 : $analise = "Ruim";
                         }
                         echo("<div id='mensagem'>
-                                <b>".$respostas["texto"]."</b><br/>
+                                ".$respostas["texto"]."<br/><br />
                                 <small> Analisada como $analise pelo usuário <a href='perfil.php?id_usuario=$id_usuario_criador'>$apelido </a></small><br />
                                 <small>Postado em: ".date("d/m/Y",  strtotime($respostas["data_criacao"]))." às ".$respostas["hora_criacao"]." 
                                  por: <a href='perfil.php?id_usuario=".$respostas["id_usuario"]."'>".$respostas["apelido"])."</a></small></div>";

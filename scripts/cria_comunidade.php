@@ -33,6 +33,7 @@
                 VALUES ($id_usuario,'$nome_comunidade', '$descricao','$data','$hora');"; 
             mysql_query($query) or die ("Falha na inserção dos dados");
             
+            
         }
     } 
     echo('<script type="text/javascript">location.replace("../minhas_comunidades.php")</script>');  
